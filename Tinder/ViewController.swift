@@ -7,14 +7,29 @@
 //
 
 import UIKit
+import Stevia
 
 class ViewController: UIViewController {
 
+    let topNavigationStackView = TopNavigationStackView()
+    let cardsDeckView = UIView()
+    let homeBottomControlsStackview = HomeBottomControlsStackview()
+
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view.
+        view.backgroundColor = .white
+        cardsDeckView.backgroundColor = .white
+        setupLayout()
     }
 
-
+    //MARK:- Fileprivate
+    fileprivate func setupLayout() {
+        let overallStackView = UIStackView(arrangedSubviews: [topNavigationStackView, cardsDeckView, homeBottomControlsStackview])
+        overallStackView.axis = .vertical
+        view.sv(overallStackView)
+        overallStackView.Top == view.safeAreaLayoutGuide.Top
+        overallStackView.fillHorizontally()
+        overallStackView.Bottom == view.safeAreaLayoutGuide.Bottom
+    }
 }
 
