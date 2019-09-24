@@ -11,14 +11,15 @@ import Stevia
 
 class HomeController: UIViewController {
 
-    let topNavigationStackView = TopNavigationStackView()
-    let cardsDeckView = UIView()
-    let homeBottomControlsStackview = HomeBottomControlsStackview()
-    let cardViewModels: [CardViewModel] = {
+    fileprivate let topNavigationStackView = TopNavigationStackView()
+    fileprivate let cardsDeckView = UIView()
+    fileprivate let homeBottomControlsStackview = HomeBottomControlsStackview()
+
+    fileprivate let cardViewModels: [CardViewModel] = {
         let models = [
-            User(name: "Kelly", age: 23, profession: "Music DJ", imageName: "kelly3"),
-            User(name: "Jane", age: 20, profession: "Student", imageName: "jane1"),
-            Advertiser(title: "Slide Out Menu Course", brandName: "Let's Build That App", posterPhotoName: "slide_out_menu_poster")] as [CardViewModelable]
+            User(name: "Kelly", age: 23, profession: "Music DJ", imageNames: ["kelly1", "kelly2", "kelly3"]),
+            Advertiser(title: "Slide Out Menu Course", brandName: "Let's Build That App", posterPhotoName: "slide_out_menu_poster"),
+            User(name: "Jane", age: 20, profession: "Student", imageNames: ["jane1", "jane2", "jane3"])] as [CardViewModelable]
         return models.map { $0.toCardViewModel() }
     }()
 
