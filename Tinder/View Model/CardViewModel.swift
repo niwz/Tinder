@@ -8,6 +8,10 @@
 
 import UIKit
 
+protocol CardViewModelable {
+    func toCardViewModel() -> CardViewModel
+}
+
 struct CardViewModel {
     let imageName: String
     let attributedString: NSAttributedString

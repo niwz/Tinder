@@ -11,8 +11,16 @@ import Stevia
 
 class CardView: UIView {
 
-    let imageView = UIImageView(image: #imageLiteral(resourceName: "kelly3"))
-    let informationLabel: UILabel = {
+    var cardViewModel: CardViewModel! {
+        didSet {
+            imageView.image = UIImage(named: cardViewModel.imageName)
+            informationLabel.attributedText = cardViewModel.attributedString
+            informationLabel.textAlignment = cardViewModel.textAlignment
+        }
+    }
+
+    fileprivate let imageView = UIImageView(image: #imageLiteral(resourceName: "kelly3"))
+    fileprivate let informationLabel: UILabel = {
         let label = UILabel()
         label.textColor = .white
         label.numberOfLines = 2

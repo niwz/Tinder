@@ -8,7 +8,7 @@
 
 import UIKit
 
-struct Advertiser {
+struct Advertiser: CardViewModelable {
     let title: String
     let brandName: String
     let posterPhotoName: String

@@ -9,7 +9,7 @@
 import Foundation
 import UIKit
 
-struct User {
+struct User: CardViewModelable {
     let name: String
     let age: Int
     let profession: String
